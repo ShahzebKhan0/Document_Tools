@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools Hub</title>
+  <link rel="shortcut icon" href="/Backend/image/emoji_image-removebg-preview.png" type="image/x-icon">
+  <link href="./src/output.css" rel="stylesheet">
+  <style>
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-slate-800 shadow-md py-4 px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🧰 Tools Hub</h1>
+
+    <!-- Toggle + Dropdown -->
+    <div class="flex items-center gap-4">
+      <!-- Theme toggle -->
+      <button id="themeToggle" class="p-2 rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 dark:hover:bg-slate-500 transition">
+        🌙
+      </button>
+
+      <!-- Dropdown -->
+      <div class="relative group">
+        <button class="px-4 py-2 bg-slate-200 dark:bg-slate-700 rounded-md hover:bg-slate-300 dark:hover:bg-slate-600 transition">
+          Menu
+        </button>
+        <div class="absolute hidden group-hover:block bg-white dark:bg-slate-700 shadow-md mt-2 rounded-md z-10 min-w-[150px]">
+          <a href="#" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600">PDF Tools</a>
+          <a href="#" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600">Image Tools</a>
+          <a href="#" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600">More</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Tool Cards -->
+  <main class="p-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 fade-in">
+
+    <!-- PDF Merger Card -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md p-6 flex flex-col justify-between border border-slate-200 dark:border-slate-700">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">📎 PDF Merger</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-4">
+          Merge multiple PDF files into a single document effortlessly. Fast, secure, and easy to use.
+        </p>
+      </div>
+      <button class="mt-auto bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition duration-300">
+        <a href="/Frontend/routes/pdf_merger.html" class="list-none">Use Tool</a>
+      </button>
+    </div>
+
+    <!-- Additional tools will go here -->
+
+  </main>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Load theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      const theme = html.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+</body>
+</html>

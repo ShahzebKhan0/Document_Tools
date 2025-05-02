@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/Backend/image/emoji_image-removebg-preview.png" type="image/x-icon">
+  <title>PDF Merger Tool</title>
+  <link href="/src/output.css" rel="stylesheet">
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-in-out both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-slate-800 shadow-md py-4 px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🧰 PDF Merger</h1>
+  </nav>
+
+  <!-- PDF Merger Form -->
+  <main class="p-6 fade-in">
+    <!-- Back Button -->
+<div class="max-w-3xl mx-auto mb-4">
+    <button onclick="window.location.href='/index.html'"
+            class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition duration-300">
+      ← Back to Home
+    </button>
+  </div>
+  
+    <div class="max-w-3xl mx-auto bg-white dark:bg-slate-800 shadow-lg p-8 rounded-xl">
+      <h2 class="text-2xl font-semibold mb-4">Merge Multiple PDFs</h2>
+      <p class="text-slate-600 dark:text-slate-300 mb-4">
+        Upload multiple PDFs to merge them into a single file. Click "Merge PDFs" to start the process.
+      </p>
+
+      <!-- PDF Upload Form -->
+      <form id="pdfForm" class="space-y-6">
+        <div>
+            <input type="file" id="pdfFiles" name="pdfs" multiple accept="application/pdf" required /><span>← Click here to choose file</span>
+        </div>
+
+        <!-- Merge Button -->
+        <button type="submit" class="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition duration-300">
+          Merge PDFs
+        </button>
+      </form>
+
+      <!-- Loading Spinner -->
+      <div id="loadingSpinner" class="hidden text-center mt-6">
+        <div class="animate-spin rounded-full border-t-4 border-emerald-600 w-12 h-12 mx-auto"></div>
+        <p class="mt-4">Merging your PDFs...</p>
+      </div>
+
+      <!-- Result (Download Link) -->
+      <div id="downloadLink" class="hidden mt-6 text-center">
+        <a id="downloadBtn" target="_blank" href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300">
+          Download Merged PDF
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/Backend/PDF_Merger/pdf_merg2.js"></script>
+</body>
+</html>
